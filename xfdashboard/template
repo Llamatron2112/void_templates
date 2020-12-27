@@ -1,0 +1,23 @@
+# Template file for 'xfdashboard'
+pkgname=xfdashboard
+version=0.8.0
+revision=1
+#archs="i686 x86_64"
+#wrksrc=
+#create_wrksrc=yes
+build_style=gnu-configure
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="xfce4-dev-tools base-devel glib"
+makedepends="libglib-devel xorg-server-devel libwnck-devel clutter-devel garcon-devel xfconf-devel libxfce4util-devel libxfce4ui-devel libXcomposite-devel libXdamage-devel libXinerama-devel"
+depends="glib xorg-server libwnck clutter garcon xfconf libxfce4util libxfce4ui libXcomposite libXdamage libXinerama"
+short_desc="Maybe a Gnome shell like dashboard for Xfce"
+maintainer="Llamatron <llamatron2112@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://docs.xfce.org/apps/xfdashboard/start"
+distfiles="http://archive.xfce.org/src/apps/xfdashboard/0.8/xfdashboard-${version}.tar.bz2"
+checksum=5834d6cb2e3f623224ac886c47a07069bab770484026d069e634ce7b6cc43ad8
+
