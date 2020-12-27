@@ -1,0 +1,22 @@
+# Template file for 'gamemode'
+pkgname=gamemode
+version=1.6
+revision=1
+archs="x86_64"
+#wrksrc=
+#create_wrksrc=yes
+build_style=meson
+configure_args="-Dwith-sd-bus-provider=elogind"
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="meson pkg-config cmake"
+makedepends="elogind-devel dbus-devel"
+depends="elogind dbus inih"
+short_desc="GameMode is a daemon/lib combo for Linux that allows games to request a set of optimisations be temporarily applied to the host OS and/or a game process."
+maintainer=" <>"
+license="BSD-3-Clause"
+homepage="https://github.com/FeralInteractive/gamemode"
+distfiles="https://github.com/FeralInteractive/gamemode/releases/download/${version}/gamemode-${version}.tar.xz"
+checksum=ede17eb042c1c87f7b35bfe96a00560afaea086f685d25bb3964d794b0af9c80
