@@ -1,0 +1,42 @@
+# Template file for 'gmail-desktop'
+pkgname=gmail-desktop
+version=2.20.4
+revision=1
+#archs="i686 x86_64"
+#wrksrc=
+#create_wrksrc=yes
+#build_style=
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="yarn"
+makedepends=""
+depends=""
+short_desc="Unofficial Gmail desktop app"
+maintainer="Llamatron <llamatron2112@gmail.com>"
+license="MIT"
+homepage="https://github.com/timche/gmail-desktop"
+distfiles="https://github.com/timche/gmail-desktop/archive/v${version}.tar.gz"
+checksum=ae26f919432eb63e779b019547b8d600f2fc01727c701fcfcf98e5c10cca4060
+
+do_configure() {
+	sed -i '112,116d' package.json
+	sed -i 's/tar.bz2/dir/g' package.json
+	sed -i 's/macos --linux --windows --publish never/linux --publish never/g' package.json
+}
+
+do_build() {
+	yarn install --cache-folder "$wrksrc/yarn-cache"
+	yarn dist
+}
+
+do_install () {
+	vmkdir opt
+	vcopy dist/linux-unpacked opt/${pkgname}
+	vlicense LICENSE
+	vinstall build/icon.png 644 usr/share/pixmaps/ $pkgname.png
+	vinstall $FILESDIR/${pkgname}.sh 755 usr/bin/ $pkgname
+	vinstall $FILESDIR/${pkgname}.desktop 644 usr/share/applications/
+}
