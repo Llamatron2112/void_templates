@@ -1,0 +1,26 @@
+# Template file for 'ayatana-webmail'
+pkgname=ayatana-webmail
+version=20.8.16
+revision=1
+#archs="i686 x86_64"
+#wrksrc=
+#create_wrksrc=yes
+build_style=python3-module
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="python3-setuptools python3-polib"
+makedepends=""
+depends="dconf libcanberra libcanberra-utils libnotify python3-Babel python3-gobject python3-psutil python3-SecretStorage python3-urllib3 hicolor-icon-theme desktop-file-utils"
+short_desc="Webmail notifications and actions for any desktop"
+maintainer="Llamatron <llamatron2112@gmail.com>"
+license="GPL-3.0"
+homepage="https://tari.in/www/software/ayatana-webmail/"
+distfiles="https://github.com/AyatanaIndicators/ayatana-webmail/archive/${version}.tar.gz"
+checksum=f4e2d80052a370a74fb37717c87ac7d4eb38fc4ea6ec0b60d56f919fe06f668b
+
+post_install() {
+	vcopy ${DESTDIR}/usr/share/ayatanawebmail/ usr/share/icons/hicolor/scalable/status/
+}
