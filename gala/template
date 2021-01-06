@@ -1,0 +1,25 @@
+# Template file for 'gala'
+pkgname=gala
+version=3.3.2
+revision=1
+archs="x86_64"
+wrksrc=gala-master
+#create_wrksrc=yes
+build_style=meson
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="gettext cmake vala pkg-config"
+makedepends="gnome-settings-daemon-devel gsettings-desktop-schemas-devel libcanberra-devel clutter-devel libgee08-devel glib-devel gnome-desktop-devel granite-devel gtk+3-devel mutter-devel plank-devel libxml2-devel bamf-devel"
+depends=""
+short_desc="Gala Window Manager"
+maintainer="Llamatron <llamatron2112@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/elementary/gala"
+#distfiles="https://github.com/elementary/gala/archive/${version}.tar.gz"
+distfiles="https://github.com/elementary/gala/archive/master.zip"
+#checksum=3fb20a81fdfd81522fffa306ecf780a898ea6ed6dc3538735e561b4335c68192
+checksum=7d8def44785deb0f975b1f8fe1c0d8cef05f9574771d18a53b4b57df76fd25c9
+
