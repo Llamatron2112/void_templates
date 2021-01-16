@@ -1,0 +1,31 @@
+# Template file for 'bauh'
+pkgname=bauh
+version=0.9.11
+revision=1
+#archs="i686 x86_64"
+#wrksrc=
+#create_wrksrc=yes
+build_style=python3-module
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="python3-setuptools"
+makedepends=""
+depends="python3-PyQt5>=5.12 python3-requests>=2.18 python3-colorama>=0.3.8 python3-yaml>=3.13 python3-dateutil>=2.7"
+short_desc="Graphical user interface for managing your Linux applications."
+maintainer="Llamatron <llamatron2112@gmail.com>"
+license="zlib License"
+homepage="https://github.com/vinifmor/bauh"
+distfiles="https://github.com/vinifmor/bauh/archive/${version}.tar.gz"
+checksum=1bb5afe27d89ce2b2d9ccc02c8e6cf265bc2d3ba1f5572124f7b7769354524f1
+
+post_install() {
+    vmkdir usr/share/icons/hicolor/scalable/apps
+    vinstall bauh/view/resources/img/logo.svg 644 usr/share/icons/hicolor/scalable/apps/ bauh.svg
+
+    vmkdir usr/share/applications
+    vinstall bauh/desktop/bauh.desktop 644 usr/share/applications/
+    vinstall bauh/desktop/bauh_tray.desktop 644 usr/share/applications/
+}
